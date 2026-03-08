@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Sparkles } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 import { callAI } from '../api/ai';
 import { useCandidateStore } from '../store/useCandidateStore';
 
@@ -132,7 +133,23 @@ export default function HRCopilot() {
                                             : 'glass-panel rounded-2xl rounded-tl-sm text-[var(--text-primary)]'
                                             }`}
                                     >
-                                        <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.content}</p>
+                                        {msg.role === 'assistant' ? (
+                                            <div className="text-sm prose-invert max-w-none">
+                                                <ReactMarkdown
+                                                    components={{
+                                                        p: ({ children }) => <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>,
+                                                        ul: ({ children }) => <ul className="list-disc ml-4 mb-2 space-y-1">{children}</ul>,
+                                                        ol: ({ children }) => <ol className="list-decimal ml-4 mb-2 space-y-1">{children}</ol>,
+                                                        li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+                                                        strong: ({ children }) => <strong className="font-bold text-[var(--accent-pink)]">{children}</strong>,
+                                                    }}
+                                                >
+                                                    {msg.content}
+                                                </ReactMarkdown>
+                                            </div>
+                                        ) : (
+                                            <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                                        )}
                                     </div>
                                 </motion.div>
                             ))}

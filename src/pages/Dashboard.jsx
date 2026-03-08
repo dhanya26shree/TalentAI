@@ -31,7 +31,7 @@ export default function Dashboard() {
 
     // Prepare data for chart
     const chartData = [...candidates].slice(-10).map((c, i) => ({
-        name: c.name.split(' ')[0], // first name
+        name: (c.name || 'Unknown').split(' ')[0], // first name
         score: c.score,
         index: i
     }));

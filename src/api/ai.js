@@ -29,7 +29,12 @@ export async function callAI(systemPrompt, userContent, isJson = true) {
         }
 
         const data = await res.json();
-        const raw = data.choices[0]?.message?.content || '';
+        let raw = data.choices[0]?.message?.content || '';
+
+        if (isJson) {
+            // Strip potential markdown code blocks if the AI accidentally included them
+            raw = raw.replace(/```json/g, '').replace(/```/g, '').trim();
+        }
 
         return raw.trim();
     } catch (err) {
