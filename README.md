@@ -3,6 +3,7 @@
 A Full-Stack AI-Powered Recruitment & HR Intelligence Suite
 
 🚀 Live Demo: [talent-ai-pied.vercel.app](https://talent-ai-pied.vercel.app)
+
 🎥 Demo Video:
 https://drive.google.com/file/d/1i5Msll4ccXc3cVhiiOZ0uGp9wj-w64AH/view?usp=sharing
 ---
