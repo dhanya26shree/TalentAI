@@ -136,7 +136,13 @@ export default function ResumeScreener() {
             const rawJson = await callAI(systemPrompt, responsePrompt);
             const data = JSON.parse(rawJson);
 
-            const candidatePayload = { ...data, role: role || 'General Candidate' };
+            const candidatePayload = { 
+                ...data, 
+                id: Date.now(),
+                role: role || 'General Candidate',
+                resumeText: resumeText,
+                scannedAt: new Date().toISOString()
+            };
             setResult(candidatePayload);
             addCandidate(candidatePayload);
         } catch (err) {

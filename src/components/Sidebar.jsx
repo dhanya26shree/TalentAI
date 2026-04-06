@@ -10,13 +10,15 @@ import {
     Settings,
     Sun,
     Moon,
-    Zap
+    Zap,
+    Users
 } from 'lucide-react';
 import { useCandidateStore } from '../store/useCandidateStore';
 
 const NAV_ITEMS = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, color: '#00FFB2' },
     { id: 'resume', label: 'Resume Screener', icon: FileSearch, color: '#00D4FF' },
+    { id: 'candidates', label: 'Candidates', icon: Users, color: '#FFD166' },
     { id: 'interview', label: 'Interview Coach', icon: MessageSquare, color: '#818CF8' },
     { id: 'bias', label: 'Bias Detector', icon: ShieldAlert, color: '#FFD166' },
     { id: 'copilot', label: 'HR Copilot', icon: Bot, color: '#F472B6' },

@@ -8,6 +8,7 @@ import InterviewCoach from './pages/InterviewCoach';
 import BiasDetector from './pages/BiasDetector';
 import HRCopilot from './pages/HRCopilot';
 import Settings from './pages/Settings';
+import Candidates from './pages/Candidates';
 import { useCandidateStore } from './store/useCandidateStore';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                     <PageWrapper key={activeTab}>
                         {activeTab === 'dashboard' && <Dashboard />}
                         {activeTab === 'resume' && <ResumeScreener />}
+                        {activeTab === 'candidates' && <Candidates />}
                         {activeTab === 'interview' && <InterviewCoach />}
                         {activeTab === 'bias' && <BiasDetector />}
                         {activeTab === 'copilot' && <HRCopilot />}
